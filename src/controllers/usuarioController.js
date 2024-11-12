@@ -15,11 +15,14 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        res.json({
+                            id: resultadoAutenticar[0].idUsuario,
+                            email: resultadoAutenticar[0].email,
+                            usuario: resultadoAutenticar[0].usuario});
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("Usuário e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }

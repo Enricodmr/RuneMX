@@ -11,11 +11,11 @@ function pesquisar(){
     
 }
 
-async function buscaDados(resultado) {
-    var acc_1_url = '/riot/account/v1/accounts/by-riot-id'
-    var full_url = `${america_url}${acc_1_url}/${resultado[0]}/${resultado[1]}?api_key=${API_key}`
-    const resposta = await fetch(full_url);
-    const dados = await resposta.json();
-    console.log(dados);
-}   
+// async function buscaDados(resultado) {
+//     var acc_1_url = '/riot/account/v1/accounts/by-riot-id'
+//     var full_url = `${america_url}${acc_1_url}/${resultado[0]}/${resultado[1]}?api_key=${API_key}`
+//     const resposta = await fetch(full_url);
+//     const dados = await resposta.json();
+//     console.log(dados);
+// }   
 

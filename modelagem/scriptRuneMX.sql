@@ -29,4 +29,4 @@ CONSTRAINT RespostaPost foreign key (fkPost) references Posts(idPost),
 CONSTRAINT RespostaUsuarioPost PRIMARY KEY (idResposta,fkUsuario,fkPost)
 );
 
-CREATE TABLE 
+SELECT * FROM usuario;
