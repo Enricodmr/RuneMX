@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+.header{
+    height: var(--tamanho-header);
+    border-bottom: 2px solid #32b9cd;
+    background-image: linear-gradient(to right,#06639E,#022338, #022338,#022338, #022338);
+}
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+.navbar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #e3b062;
+}
+:root {
+    --tamanho-header: 80px;
+    --tamanho-footer: 65px;
+    --tamanho-banner: calc(135vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+    --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+}
+
+.banner {
+    position: relative;
+    height: var(--tamanho-banner); /* Define a altura da banner */
+}
+body{
+    background-color: #022338;
+}
+
+.banner::before {
+    height: 100%; /* Define a altura do pseudo-elemento para cobrir toda a .banner */
+    color: azure;
+    background-image: url('assets/Zed_49.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Define a opacidade da imagem de fundo */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Fica abaixo do conteúdo */
+}
+
+.motivo {
+    position: relative;
+    z-index: 2; /* Coloca o conteúdo acima da imagem de fundo */
+    color: azure; /* Cor do texto */
+    opacity: 1; /* Mantém opacidade total para o conteúdo */
+    font-size: 70px;
+    color: #CDBE94;
+    font-family: 'Jockey One', sans-serif;
+    width: 800px;
+    flex-direction: column;
+}
+
+.banner2::before {
+    height: 100%; /* Define a altura do pseudo-elemento para cobrir toda a .banner */
+    color: azure;
+    background-image: url('assets/69446f9a44a3be38eda5da8593224262.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Define a opacidade da imagem de fundo */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Fica abaixo do conteúdo */
+}
+.banner2{
+    display: flex;
+    position: relative;
+    height: var(--tamanho-banner);
+}
+.div_botao{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.botao{
+    width: 350px;
+    height: 100px;
+    background-color:#CDBE94;
+    border-radius: 10px;
+    opacity: 1;
+    z-index: 2;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 50px;
+    margin-left: 280px;
+}
+.login{
+    display: flex;
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1;
+    z-index: 2;
+    
+}

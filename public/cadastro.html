@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+          <h1 class="titulo">ZZ</h1>
+          <ul class="navbar">
+            <li class="agora">
+              <a href="#">Inicial</a>
+            </li>
+            <li>
+              <a href="simulador.html">Simulador</a>
+            </li>
+            <li>|</li>
+            <li>
+              <a href="login.html">Login</a>
+            </li>
+            <li>
+              <a href="cadastro.html">Cadastro</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="banner2">
+        <div class="container">
+          <div class="login" class="jockey-one-regular">
+            Insira o usuário: <br>
+            <input type="text" id="ipt_usuario">
+            <div id="erro_usu"></div>
+            Insira o email: <br>
+            <input type="text" id="ipt_email">
+            <div id="erro_email"></div>
+            Insira a senha: <br>
+            <input type="text" id="ipt_senha">
+            <div id="erro_senha"></div>
+            Confirme a senha: <br>
+            <input type="text" id="senha_conf">
+            <div id="erro_confirma"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+</body>
+</html>
+<script>
+  function cadastrar(){
+
+    var usuarioVar = ipt_usuario.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = senha_conf.value;
+
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        usuarioServer: usuarioVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          erro_confirma.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>
