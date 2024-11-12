@@ -4,17 +4,19 @@ function listar() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucaoSql = `
         SELECT 
-            a.id AS idAviso,
-            a.titulo,
-            a.descricao,
-            a.fk_usuario,
-            u.id AS idUsuario,
-            u.nome,
+            p.idposts AS idposts,
+            p.titulo,
+            p.conteudo,
+            p.tema,
+            p.fk_usuario,
+            p.dataPost,
+            u.idUsuario AS idUsuario,
+            u.usuario,
             u.email,
             u.senha
-        FROM aviso a
+        FROM posts p
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id;
+                ON p.fk_usuario = u.idUsuario;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -24,18 +26,20 @@ function pesquisarDescricao(texto) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarDescricao()");
     var instrucaoSql = `
         SELECT 
-            a.id AS idAviso,
-            a.titulo,
-            a.descricao,
-            a.fk_usuario,
-            u.id AS idUsuario,
-            u.nome,
+            p.idposts AS idPosts,
+            p.titulo,
+            p.conteudo,
+            p.tema,
+            p.fk_usuario,
+            p.dataPost,
+            u.idUsuario AS idUsuario,
+            u.usuario,
             u.email,
             u.senha
-        FROM aviso a
+        FROM posts p
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
-        WHERE a.descricao LIKE '${texto}';
+                ON p.fk_usuario = u.idUsuario
+        WHERE p.conteudo LIKE '${texto}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -45,45 +49,47 @@ function listarPorUsuario(idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
     var instrucaoSql = `
         SELECT 
-            a.id AS idAviso,
-            a.titulo,
-            a.descricao,
-            a.fk_usuario,
+            p.idposts AS idPosts,
+            p.titulo,
+            p.conteudo,
+            p.tema,
+            p.fk_usuario,
+            p.dataPost,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
-        FROM aviso a
+        FROM posts p
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
-        WHERE u.id = ${idUsuario};
+                ON p.fk_usuario = u.idUsuario
+        WHERE u.idUsuario = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function publicar(titulo, descricao, idUsuario) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario);
+function publicar(titulo, conteudo, tema,idUsuario, dataPost) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, conteudo, tema, idUsuario, dataPost);
     var instrucaoSql = `
-        INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES ('${titulo}', '${descricao}', ${idUsuario});
+        INSERT INTO posts (titulo, conteudo, tema, fkUsuario, dataPost) VALUES ('${titulo}', '${conteudo}',${tema}, ${idUsuario}, ${dataPost});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function editar(novaDescricao, idAviso) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idAviso);
+function editar(novaDescricao, idposts) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idposts);
     var instrucaoSql = `
-        UPDATE aviso SET descricao = '${novaDescricao}' WHERE id = ${idAviso};
+        UPDATE aviso SET descricao = '${novaDescricao}' WHERE id = ${idposts};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function deletar(idAviso) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idAviso);
+function deletar(idposts) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idposts);
     var instrucaoSql = `
-        DELETE FROM aviso WHERE id = ${idAviso};
+        DELETE FROM aviso WHERE id = ${idposts};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
