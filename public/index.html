@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="container">
+  <div class="header fonte-jockey" >
+    <div class="container">
           <h1 class="titulo">ZZ</h1>
           <ul class="navbar">
             <li class="agora">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class="div_botao">
-          <button class="botao" class="jockey-one-regular">CADASTRE-SE</button>
+          <button class="botao_index" class="jockey-one-regular" onclick="tela_cadastro()">CADASTRE-SE!</button>
           </div>
             
         </div>
@@ -58,3 +58,8 @@
 
 </body>
 </html>
+<script>
+  function tela_cadastro(){
+    window.location.href = 'cadastro.html'
+  }
+</script>

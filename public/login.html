@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="container">
+  <div class="header fonte-jockey" >
+    <div class="container">
           <h1 class="titulo">ZZ</h1>
           <ul class="navbar">
             <li class="agora">
-              <a href="#">Inicial</a>
+              <a href="index.html">Inicial</a>
             </li>
             <li>
               <a href="simulador.html">Simulador</a>
             </li>
             <li>|</li>
             <li>
-              <a href="login.html">Login</a>
+              <a href="#">Login</a>
             </li>
             <li>
               <a href="cadastro.html">Cadastro</a>
@@ -30,22 +30,24 @@
         </div>
       </div>
 
-      <div class="banner2">
+      <div class="banner3">
         <div class="container">
-          <div class="login" class="jockey-one-regular">
+          <div class="login fonte-jockey">
+            <h1>LOGIN</h1>
             Insira o usuário: <br>
             <input type="text" id="ipt_usuario" value="eliovrau88"><br>
             Insira a sua senha: <br>
             <input type="text" id="ipt_senha" value="damaro1234">
-            <button onclick="login()">Login</button>
-            <div id="div_erro"></div>
+            <br>
+            <button onclick="login()" class="botao">Login</button>
+            <div class="msg_erro"></div>
           </div>
         </div>
       </div>
-
       <div id="div_aguardar" class="loading-div">
         <img src="./assets/circle-loading.gif" id="loading-gif">
-    </div>
+      </div>
+
 
 
 </body>
