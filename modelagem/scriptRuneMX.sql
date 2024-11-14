@@ -30,3 +30,7 @@ CONSTRAINT RespostaUsuarioPost PRIMARY KEY (idResposta,fkUsuario,fkPost)
 );
 
 SELECT * FROM usuario;
+
+INSERT INTO posts VALUES(
+DEFAULT,'oLOCO','kogudo 1k pdl','Soloq',1,'2024-11-13 18:02:00'
+)

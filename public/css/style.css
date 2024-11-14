@@ -197,3 +197,37 @@ a:hover{
     bottom: 0;
     z-index: 1; /* Fica abaixo do conteúdo */
 }
+
+.loading-div {
+    width: 50px;
+    display: none;
+}
+  
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
+.banner4{
+    display: flex;
+    position: relative;
+    height: var(--tamanho-banner);
+    justify-content: center;
+    align-items: center;
+}
+
+.banner4:before{
+    height: 100%;
+    color: azure;
+    background-image: url('../assets/9f6c08831b0d22c4c929fc50ada08d29650f1917-1280x721.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Fica abaixo do conteúdo */
+}

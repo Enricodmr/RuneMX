@@ -40,7 +40,7 @@
             <input type="text" id="ipt_senha" value="damaro1234">
             <br>
             <button onclick="login()" class="botao">Login</button>
-            <div class="msg_erro"></div>
+            <div class="msg_erro" id="divErrosLogin"></div>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@ function login() {
     }
 
     function sumirMensagem() {
-        div_erro.innerHTML = ``
+      divErrosLogin.innerHTML = ``
     }
 
 

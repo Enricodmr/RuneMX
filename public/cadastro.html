@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/script.js"></script>
+    <script src="js/sessao.js"></script>
+    <script src="js/alerta.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -47,6 +49,9 @@
             <div id="erro_confirma" class="msg_erro"></div>
             <div id="div_vazio" class="msg_erro"></div><br>
             <button id="btn_cadastro" class="botao" onclick="cadastrar()">Cadastrar</button>
+            <div id="div_aguardar" class="loading-div">
+              <img src="./assets/circle-loading.gif" id="loading-gif" />
+            </div>
           </div>
           <!-- <div class="campeao">
             <img src="assets/zed.gif" alt="Gif do zed dizimador de galáxias">
@@ -67,7 +72,7 @@
     var senhaVar = ipt_senha.value;
     var confirmacaoSenhaVar = senha_conf.value;
 
-
+    aguardar()
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -78,7 +83,7 @@
         // Agora vá para o arquivo routes/usuario.js
         usuarioServer: usuarioVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
