@@ -14,6 +14,20 @@ function listar(req, res) {
     });
 }
 
+function listar_ultimos(req, res) {
+    avisoModel.listar_ultimos().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
 
@@ -62,23 +76,17 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var titulo = req.body.titulo;
-    var conteudo = req.body.conteudo;
+    var descricao = req.body.descricao;
     var idUsuario = req.params.idUsuario;
-    var tema = req.body.tema;
-    var dataPost = req.body.dataPost;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (conteudo == undefined) {
-        res.status(400).send("O conteúdo está indefinido!");
-    } else if (tema == undefined) {
-        res.status(400).send("O tema está indefinido!");
-    }else if (dataPost == undefined) {
-        res.status(400).send("A data está indefinido!");
-    }else if (idUsuario == undefined) {
+    } else if (descricao == undefined) {
+        res.status(400).send("A descrição está indefinido!");
+    } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, conteudo, tema,fkUsuario, dataPost)
+        avisoModel.publicar(titulo, descricao, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -96,9 +104,9 @@ function publicar(req, res) {
 
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
-    var idPost = req.params.idpost;
+    var idAviso = req.params.idAviso;
 
-    avisoModel.editar(novaDescricao, idPost)
+    avisoModel.editar(novaDescricao, idAviso)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -115,9 +123,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idpost = req.params.idPost;
+    var idAviso = req.params.idAviso;
 
-    avisoModel.deletar(idpost)
+    avisoModel.deletar(idAviso)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -133,6 +141,7 @@ function deletar(req, res) {
 }
 
 module.exports = {
+    listar_ultimos,
     listar,
     listarPorUsuario,
     pesquisarDescricao,

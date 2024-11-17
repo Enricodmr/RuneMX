@@ -20,7 +20,7 @@ function limparSessao() {
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "block";
+    divAguardar.style.display = "flex";
 }
 
 function finalizarAguardar(texto) {
@@ -29,6 +29,8 @@ function finalizarAguardar(texto) {
 
     var divErrosLogin = document.getElementById("div_erros_login");
     if (texto) {
-        divErrosLogin.innerHTML = `Usuário ou senha incorretos`;
+        divErrosLogin.style.display = "flex";
+        divErrosLogin.innerHTML = texto;
     }
 }
+
