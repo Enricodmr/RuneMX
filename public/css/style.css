@@ -4,9 +4,14 @@
     font-family: 'Jockey One', sans-serif;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+}
 
 .header{
     height: var(--tamanho-header);
+    width: 100%;
     border-bottom: 2px solid #32b9cd;
     background-image: linear-gradient(to right,#06639E,#022338, #022338,#022338, #022338);
 }
@@ -27,9 +32,10 @@
     color: #e3b062;
 }
 :root {
-    --tamanho-header: 80px;
+    --tamanho-header: 70px;
     --tamanho-footer: 65px;
     --tamanho-banner: calc(135vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+    --tamanho-banner2: calc(130vh - var(--tamanho-header) - var(--tamanho-footer) - 2px)
     --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
 }
 
@@ -62,7 +68,7 @@ body{
     z-index: 2; /* Coloca o conteúdo acima da imagem de fundo */
     color: azure; /* Cor do texto */
     opacity: 1; /* Mantém opacidade total para o conteúdo */
-    font-size: 70px;
+    font-size: 60px;
     color: #CDBE94;
     font-family: 'Jockey One', sans-serif;
     width: 800px;
@@ -87,7 +93,7 @@ body{
 .banner2{
     display: flex;
     position: relative;
-    height: var(--tamanho-banner);
+    height: var(--tamanho-banner2);
     justify-content: start;
 }
 .div_botao{
@@ -112,7 +118,8 @@ body{
     display: flex;
     font-size: 20px;
     width: 500px;
-    height: 400px;
+    min-height: 400px;
+    max-height: fit-content;
     border-radius: 10px;
     background-color: #022338;
     align-items: center;
