@@ -11,7 +11,7 @@ return database.executar(instrucao);
 
 function cadastrarPontos(pontos, idUsuario) {
   var instrucao = `
-    INSERT INTO quiz (qtdPontos, fk_usuario) VALUES (${pontos}, ${idUsuario});
+    INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (${pontos}, ${idUsuario});
   `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);

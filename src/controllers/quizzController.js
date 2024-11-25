@@ -1,7 +1,7 @@
-var quizModel = require("../models/quizModel");
+var quizzModel = require("../models/quizzModel");
 
 function listarMediaPont(req, res) {
-  quizModel.listarMediaPont().then((resultadolistarMediaPont) => {
+  quizzModel.listarMediaPont().then((resultadolistarMediaPont) => {
     if (resultadolistarMediaPont.length > 0) {
       res.status(200).json(resultadolistarMediaPont);
     } else {
@@ -23,7 +23,7 @@ function cadastrarPontos(req, res) {
   } else if (idUsuario == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
-    quizModel.cadastrarPontos(pontos, idUsuario)
+    quizzModel.cadastrarPontos(pontos, idUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       })

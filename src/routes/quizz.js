@@ -1,14 +1,15 @@
 var express = require("express");
 var router = express.Router();
 
-var quizController = require("../controllers/quizController");
+var quizzController = require("../controllers/quizzController");
 
 router.get("/listarMediaPont", function (req, res) {
-  quizController.listarMediaPont(req, res);
+  quizzController.listarMediaPont(req, res);
 });
 
 router.post("/cadastrarPontos", function (req, res) {
-  quizController.cadastrarPontos(req, res);
+  quizzController.cadastrarPontos(req, res);
 });
+
 
 module.exports = router;
