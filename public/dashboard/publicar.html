@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/style.css">
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -29,21 +30,30 @@
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
+            
+            <div class="btn-nav-white">
+                <a href="listarPosts.html">
+                    <h3>Oque há de novo?</h3>
+                </a>
+            </div>
+            <div class="btn-nav-white">
+                <a href="Meuspost.html">
+                    <h3>Meus posts</h3>
+                </a>
+            </div>
+
+
 
             <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
+                <a href="./quizz.html">
+                    <h3>Quizz</h3>
                 </a>
             </div>
 
             <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
+                <a href="./publicar.html">
+                    <h3>Publicar</h3>
                 </a>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -76,7 +86,7 @@
                             </label>
                             <br>
                             <br>
-                            <button>Enviar</button>
+                            <button class="botao" style="background-color: #CDBE94; color: #07324d;">Enviar</button>
                         </form>
                     </div>
                     
@@ -108,7 +118,7 @@ function publicar() {
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                window.location = "/dashboard/Meuspost.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {

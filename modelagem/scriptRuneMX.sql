@@ -29,6 +29,22 @@ CONSTRAINT RespostaPost foreign key (fkPost) references Posts(idPost),
 CONSTRAINT RespostaUsuarioPost PRIMARY KEY (idResposta,fkUsuario,fkPost)
 );
 
+CREATE TABLE resposta(
+idResposta INT auto_increment,
+conteudo VARCHAR(45),
+fkUsuario INT,
+fkPost INT,
+CONSTRAINT RespostaUsuario foreign key (fkUsuario) references usuario(idUsuario),
+CONSTRAINT RespostaPost foreign key (fkPost) references Posts(idPost),
+CONSTRAINT RespostaUsuarioPost PRIMARY KEY (idResposta,fkUsuario,fkPost)
+);
+CREATE TABLE quiz(
+idQuizz INT PRIMARY KEY auto_increment,
+qtdPontos INT,
+fkUsuario INT,
+CONSTRAINT fkUsuarioQuiz foreign key (fkUsuario) references usuario(idUsuario)
+);
+
 SELECT * FROM usuario;
 
 INSERT INTO posts VALUES(

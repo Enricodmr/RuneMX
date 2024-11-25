@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Besley:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+.textos {
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 18px;
+    color: white; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+
+.titulos {
+    font-family: "Besley", serif;
+    font-size: 35px;
+    font-weight: 500;
+    color: white; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.red {
+    color: #FF1109;
+}
+
+.subtitulo {
+    color: white; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+
+
+/* MAIN PAGE */
+#mainPage {
+    height: 110vh;
+    background-image: url('../assets/imgs/bkgMain.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -50px;
+    
+}
+
+#mainPage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+#mainPage .container {
+    position: relative;
+    z-index: 2;
+}
+.header {
+    width: 100%;
+    height: 12vh;
+    z-index: 3;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.795);
+}
+
+.header .btn{
+    background-color: rgba(255, 255, 255, 0.658);
+}
+
+.header .container {
+    display: flex;
+    width: 100%;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo img {
+    width: 110px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.logo img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+#secoes {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+#secoes li a {
+    color: white;
+    text-decoration: none;
+}
+
+#secoes li a:hover {
+    color: #FF1109;
+    transition: color 0.3s;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    padding: 8px 30px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+    background-color: #FF1109;
+   
+
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    height: 88vh;
+    align-items: center;
+}
+
+.banner .container {
+    margin-left: 40px;
+    width: 600px;
+    margin-top: 130px;
+}
+
+/* PAGE HISTORIA */
+#historiaPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    background-image: url('../assets/imgs/dragao\ SCCP.png');
+    background-size: 83%;
+    background-position: 5vw;
+    background-position-y: 50px;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+    position: relative; 
+}
+
+#historiaPage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#historiaPage .container {
+    max-width: 70%;
+    position: relative; 
+    z-index: 2; 
+}
+
+#historiaPage .red {
+    font-size: 25px;
+}
+
+#historiaPage .subtitulo {
+    font-size: 40px;
+    margin-top: 5px;
+}
+
+#historiaPage .descricao {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* TORCIDA PAGE */
+#torcidaPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    text-align: center;
+    padding: 0 20px;
+    position: relative; 
+}
+
+
+
+#torcidaPage .container {
+    display: flex;
+    margin-top: 50px;
+    max-width: 80%;
+
+}
+
+#torcidaPage .subtitulo {
+    font-size: 40px;
+    margin-top: 5px;
+}
+
+#torcidaPage .red {
+    font-size: 25px;
+}
+
+#torcidaPage .descricao {
+    text-align: justify;
+    margin-left: 50px;
+}
+
+#torcidaPage img {
+    border-radius: 30px;
+    box-shadow: 20px 30px rgba(0, 0, 0, 0.5);  
+}
+
+
+
+#torcidaPage button {
+    margin-top: 40px;
+    width: 200px;
+}
+
+/* PAGE DEMOCRACIA */
+
+#democraciaPage {
+    display: flex;
+    justify-content: center;
+    height: 110vh;
+    background-image: url('../assets/imgs/democracia2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    position: relative; 
+
+}
+
+#democraciaPage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 8, 8, 0.7);
+    z-index: 1;
+}
+
+#democraciaPage .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    max-width: 80%;
+    position: relative; 
+    z-index: 2; 
+}
+
+#democraciaPage .red {
+    font-size: 25px;
+}
+
+#democraciaPage .subtitulo {
+    font-size: 40px;
+    margin-top: 2px;
+}
+
+#democraciaPage .descricao {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.valoresImg{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    gap: 30px;
+}
+
+.valor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20vw;
+    height: 20vh;
+    align-items: center;
+}
+
+#democraciaPage img{
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+#democraciaPage img:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
+
+
+/* SEÇÃO SOCIEDADE */
+
+#sociedadePage {
+    display: flex;
+    justify-content: center;
+    height: 115vh;
+    text-align: center;
+    padding: 0 20px;
+    position: relative; 
+
+}
+
+#sociedadePage .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    margin-top: 70px;
+    max-width: 80%;
+    position: relative; 
+    z-index: 2; 
+}
+
+#sociedadePage .red {
+    font-size: 25px;
+}
+
+#sociedadePage .subtitulo {
+    font-size: 40px;
+    margin-top: 2px;
+}
+
+#sociedadePage .descricao {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.valoresCards{
+    display: flex;
+    width: 100%;
+    height: 55vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 60px;
+}
+
+
+/* PRESET CARD GIRAR */
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20vw;
+    height: 100%;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.192);
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1s;   
+    box-shadow: 15px 10px rgba(0, 0, 0, 0.5);  
+
+}
+
+.card:hover{
+    cursor: pointer;
+
+}
+
+
+
+.face{
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    position: absolute;
+    border-radius: 10px;
+}
+
+
+.front{
+    background-color: #2b2b2b;
+    transform: rotateY(180deg);
+}
+
+
+
+.back{
+    display: flex;
+    align-items: initial;
+    background-color:#2b2b2b;
+    backface-visibility: hidden;
+}
+
+.textoCard{
+    padding: 10px;
+    text-align: center;
+}
+
+.textoCard .titulos{
+    font-size: 15px;
+    text-align: center;
+}
+
+.textoCard .titulos .red{
+    font-size: 15px;
+    text-align: center;
+}
+
+.textoCard .textos{
+    font-size: 15px;
+    text-align: justify;
+    margin: 2px;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+
+/* SEÇÃO SOBRE */
+#sobrePage {
+    display: flex;
+    flex-direction: column;
+    background-color: #0e0d0d;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    text-align: center;
+    position: relative; 
+}
+
+
+
+#sobrePage .container {
+    display: flex;
+    margin-top: 50px;
+    max-width: 80%;
+    gap: 60px;
+
+}
+
+#sobrePage .subtitulo {
+    font-size: 40px;
+    margin-top: 5px;
+}
+
+#sobrePage .red {
+    font-size: 25px;
+}
+
+#sobrePage .descricao {
+    text-align: justify;
+    padding: 20px;
+    font-size: 15px;
+}
+
+#sobrePage img {
+    width: 25vw;
+    border-radius: 30px;
+    box-shadow: 20px 30px rgba(0, 0, 0, 0.5);  
+}
+
+#sobrePage .textoDescritivo{
+    display: flex;
+    background-color: #2b2b2b;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
+
+
+#sobrePage button {
+    margin-top: 40px;
+    width: 200px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 12vh;
+    gap: 200px;
+}
+
+.footer .textos{
+    color: black;
+    font-size: 15px;
+}
+
+.footer img{
+    width: 50px;
+    transition: transform 0.3s;
+}
+
+.footer img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.footer .imgs{
+    display: flex;
+    gap: 30px;
+}
+
+
+
+

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Avisos</title>
 
+    <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
@@ -19,14 +20,14 @@
         rel="stylesheet">
 </head>
 
-<body onload="atualizar_feedusuario()" style="background-color: #161618;">
+<body onload="validarSessao(), atualizar_feedusuario()" style="background-color: #161618;">
 
     <div class="janela">
 
 
         <div class="header-left">
 
-            <h1>AquaTech</h1>
+            <h1>RuneMX</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -152,6 +153,7 @@
                     var spanTitulo = document.createElement("span");
                     var spanNome = document.createElement("span");
                     var divDescricao = document.createElement("div");
+                    var divButtons = document.createElement("div");
                     var btnEditar = document.createElement("button");
                     var btnDeletar = document.createElement("button");
 
@@ -166,6 +168,7 @@
                     // Adicionando classes e atributos
                     divPublicacao.className = "publicacao";
                     btnEditar.className = "publicacao-btn-editar";
+                    divButtons.className = "div-buttons"
                     btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
                     btnDeletar.className = "publicacao-btn-editar";
                     btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
@@ -174,7 +177,9 @@
                     divPublicacao.appendChild(spanNome);
                     divPublicacao.appendChild(spanTitulo);
                     divPublicacao.appendChild(divDescricao);
-
+                    divPublicacao.appendChild(divButtons);
+                    divButtons.appendChild(btnEditar);
+                    divButtons.appendChild(btnDeletar);
                     // Adiciona ao feed
                     feed.appendChild(divPublicacao);
                 }

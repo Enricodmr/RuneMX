@@ -19,39 +19,41 @@
         rel="stylesheet">
 </head>
 
-<body onload="atualizarFeed_ultimos()" style="background-color: #161618; background-image:url('../assets/69446f9a44a3be38eda5da8593224262.png');;">
-
+<body onload="validarSessao(), atualizarFeed_ultimos()" style="background-color: #161618; background-image:url('../assets/69446f9a44a3be38eda5da8593224262.png');;">
     <div class="janela">
 
 
         <div class="header-left">
 
-            <h1>AquaTech</h1>
+            <h1>RuneMX</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-
+            
             <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
+                <a href="listarPosts.html">
+                    <h3>Oque há de novo?</h3>
                 </a>
             </div>
-
             <div class="btn-nav-white">
                 <a href="Meuspost.html">
                     <h3>Meus posts</h3>
                 </a>
             </div>
 
+
+
             <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
+                <a href="./quizz.html">
+                    <h3>Quizz</h3>
                 </a>
             </div>
 
-            <div class="btn-nav">
-                <h3>Últimos posts!!</h3>
+            <div class="btn-nav-white">
+                <a href="./publicar.html">
+                    <h3>Publicar</h3>
+                </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">

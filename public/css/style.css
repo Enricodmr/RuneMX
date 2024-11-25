@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .fonte-jockey {
     font-family: 'Jockey One', sans-serif;
 }
@@ -112,7 +117,8 @@ body{
     display: flex;
     font-size: 20px;
     width: 500px;
-    height: 400px;
+    min-height: 400px;
+    max-height: fit-content;
     border-radius: 10px;
     background-color: #022338;
     align-items: center;
@@ -230,4 +236,28 @@ a:hover{
     right: 0;
     bottom: 0;
     z-index: 1; /* Fica abaixo do conteúdo */
+}
+
+.botao_quizz{
+    width: 120px;
+    height: 40px;
+    background-color:#CDBE94;
+    border-radius: 10px;
+    opacity: 1;
+    z-index: 2;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 20px;
+    align-self: center;
+}
+
+.botao_resposta{
+    width: 120px;
+    height: 40px;
+    background-color:#CDBE94;
+    border-radius: 10px;
+    opacity: 1;
+    z-index: 2;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 15px;
+    align-self: center;
 }

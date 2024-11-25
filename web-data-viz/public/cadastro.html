@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AquaTech | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+  <script src="./js/script.js"></script>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<body>
+  <div class="header fonte-jockey" >
+    <div class="container">
+      <h1 style="color: #CDBE94; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(46, 44, 20);">RuneMX</h1>
+      <ul class="navbar">
+        <li class="agora">
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="simulador.html">Simulador</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li>
+          <a href="#">Cadastro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="banner3">
+    <div class="container">
+      <div class="cadastro fonte-jockey">
+        <div class="alerta_erro">
+          <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+          </div>
+        </div>
+        <h1>Cadastrar</h1>
+        Insira o usuário: <br>
+        <input type="text" id="ipt_usuario" oninput="validarUsuario()">
+        <div id="erro_usu" class="msg_erro"></div>
+        Insira o email: <br>
+        <input type="text" id="ipt_email" oninput="validarEmail()">
+        <div id="erro_email" class="msg_erro"></div>
+        Insira a senha: <br>
+        <input type="text" id="ipt_senha" oninput="validarSenha()">
+        <div id="erro_senha" class="msg_erro"></div>
+        Confirme a senha: <br>
+        <input type="text" id="senha_conf" oninput="validarConfirmacaoSenha()">
+        <div id="erro_confirma" class="msg_erro"></div>
+        <div id="div_vazio" class="msg_erro"></div><br>
+        <button id="btn_cadastro" class="botao" onclick="cadastrar()">Cadastrar</button>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        </div>
+      </div>
+      <!-- <div class="campeao">
+        <img src="assets/zed.gif" alt="Gif do zed dizimador de galáxias">
+      </div> -->
+    </div>
+  </div>
+</html>
+
+<script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = ipt_usuario.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = senha_conf.value;
+
+
+    // Verificando se há algum campo em branco
+    aguardar()
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          erro_confirma.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
