@@ -21,44 +21,54 @@
 </head>
 <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
     <div class="janela">
-
-
         <div class="header-left">
-
-            <h1>RuneMX</h1>
+            <h1>AquaTech</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
             
             <div class="btn-nav-white">
-                <a href="listarPosts.html">
-                    <h3>Oque há de novo?</h3>
+                <a href="./cards.html">
+                    <h3>Aquários</h3>
                 </a>
             </div>
             <div class="btn-nav-white">
-                <a href="Meuspost.html">
+                <a href="./publicar.html">
+                    <h3>publicar</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./listarPosts.html">
+                    <h3>ListarPosts</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+
+                <h3>Gráficos</h3>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Mural de Avisos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./Meuspost.html">
                     <h3>Meus posts</h3>
                 </a>
             </div>
 
-
-
-            <div class="btn-nav-white">
-                <a href="./quizz.html">
-                    <h3>Quizz</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./publicar.html">
-                    <h3>Publicar</h3>
-                </a>
-            </div>
+            
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
+
+        </div>''
 
         </div>
 
@@ -76,6 +86,12 @@
                                 Título:
                                 <br>
                                 <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <br><select name="tema" id="tema">
+                                    <option value="meme">Meme</option>
+                                    <option value="estrategia">Estratégias</option>
+                                    <option value="lore">Lore</option>
+                                    <option value="comunidade">Comunidade</option>
+                                </select>
                             </label>
                             <br>
                             <br>
@@ -103,6 +119,7 @@ function publicar() {
 
         var corpo = {
             titulo: form_postagem.titulo.value,
+            tema: form_postagem.tema.value,
             descricao: form_postagem.descricao.value
         }
 
@@ -157,6 +174,7 @@ function publicar() {
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
+                        var spanTema = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
@@ -166,6 +184,7 @@ function publicar() {
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        spanTema.innerHTML = "Tema: <b>" + publicacao.tema + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
@@ -175,6 +194,7 @@ function publicar() {
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
+                        spanTema.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
 
@@ -190,6 +210,7 @@ function publicar() {
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanTema);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
