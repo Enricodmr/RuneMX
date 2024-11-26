@@ -112,7 +112,7 @@ function deletar(idAviso) {
     return database.executar(instrucaoSql);
 }
 
-function listarPost(idPost){
+function listarPost(idAviso){
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
     var instrucaoSql = `
         SELECT 
@@ -128,7 +128,7 @@ function listarPost(idPost){
         FROM aviso a
             INNER JOIN usuario u
                 ON a.fk_usuario = u.id
-        WHERE a.id = ${idPost}};
+        WHERE a.id = ${idAviso}};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

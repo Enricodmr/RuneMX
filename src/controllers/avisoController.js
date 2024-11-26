@@ -144,9 +144,9 @@ function deletar(req, res) {
 }
 
 function listarPost(req, res) {
-    var idPost = req.params.idAviso;
+    var idAviso = req.params.idAviso;
 
-    avisoModel.listarPost(idPost)
+    avisoModel.listarPost(idAviso)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
