@@ -170,83 +170,60 @@
 
     
     function plotarGrafico(resposta) {
-      console.log('Iniciando plotagem do gráfico...');
+    console.log('Iniciando plotagem do gráfico...');
 
-      // Criando estrutura para plotar gráfico - labels
-      let labels = ['Quantidade de Acertos'];
-
-      // Criando estrutura para plotar gráfico - dados
-      let dados = {
+    // Estrutura para o gráfico de pizza
+    let labels = ['Até 5', 'De 5 a 11', 'De 11 a 14', 'Pontuação Máxima (15)'];
+    let dados = {
         labels: labels,
-        datasets: [{ //array de dados a serem setados
-          label: 'Até 5',
-          data: [], 
-          backgroundColor: 'rgb(105,105,105)',
-          borderColor: 'rgb(105,105,105)',
-        },
-        {
-          label: 'De 5 a 11',
-          data: [],
-          backgroundColor: 'rgb(218,165,32)',
-          borderColor: 'rgb(218,165,32)',
-        },
-        {
-          label: 'De 11 a 14',
-          data: [],
-          backgroundColor: 'rgb(199, 52, 52)',
-          borderColor: 'rgb(199, 52, 52)',
-        },
-        {
-          label: 'Pontuação Máxima (15) ',
-          data: [],
-          backgroundColor: 'rgb(100, 10, 12)',
-          borderColor: 'rgb(199, 52, 52)',
+        datasets: [{
+            data: [
+                resposta[0].ate_5,   // Valor para a primeira fatia
+                resposta[0].de5_a_11, // Valor para a segunda fatia
+                resposta[0].de11_a_14, // Valor para a terceira fatia
+                resposta[0].ate_15    // Valor para a quarta fatia
+            ],
+            backgroundColor: [
+                'rgb(255, 255, 0)', // Amarelo
+                'rgb(0, 0, 255)',   // Azul
+                'rgb(0, 255, 0)',   // Verde
+                'rgb(255, 0, 0)'    // Vermelho (pode ser modificado)
+            ],
+            borderColor: [
+                'rgb(255, 255, 0)', // Amarelo
+                'rgb(0, 0, 255)',   // Azul
+                'rgb(0, 255, 0)',   // Verde
+                'rgb(255, 0, 0)'    // Vermelho
+            ],
+            borderWidth: 1
         }]
-      };
+    };
 
-      console.log('----------------------------------------------');
-      console.log('Estes dados foram recebidos pela função "buscarPontuacao" e passados para "plotarGrafico":');
-      console.log(resposta);
-
-      // Acessando o valor do objeto recebido da buscarPontuacao
-      const registro = resposta[0];
-      console.log(registro)
-
-      //setando data em posicoes do array datasets de acordo com o objeto registro atraves dos aliases
-      dados.datasets[0].data.push(registro.ate_5); 
-      dados.datasets[1].data.push(registro.de5_a_11);
-      dados.datasets[2].data.push(registro.de11_a_14);
-      dados.datasets[3].data.push(registro.ate_15);
-
-      console.log('----------------------------------------------');
-      console.log('O gráfico será plotado com os respectivos valores:');
-      console.log('Labels:');
-      console.log(labels);
-      console.log('Dados:');
-      console.log(dados.datasets);
-      console.log('----------------------------------------------');
-
-      // Criando estrutura para plotar gráfico - config
-      const config = {
-        type: 'bar',
+    // Configuração do gráfico de pizza
+    const config = {
+        type: 'pie', // Altera o tipo do gráfico para 'pie' (pizza)
         data: dados,
         options: {
-          scales: {
-            x: {
-              beginAtZero: true
-            },
-            y: {
-              beginAtZero: true
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
             }
-          }
         }
-      };
+    };
 
-      // Adicionando gráfico criado em div na tela
-      let myChart = new Chart(
-        document.getElementById('myChart2'),
-        config
-      );
-    }
+    // Adicionando gráfico criado em div na tela
+    const ctx = document.getElementById('myChart2').getContext('2d');
+    new Chart(ctx, config);
+}
+
 
 </script>

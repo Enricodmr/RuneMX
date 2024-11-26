@@ -322,8 +322,8 @@ body {
 }
 
 canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 40% !important;
+  height: 40% !important;
 }
 
 /* PAGINA DOS GRÁFICOS 2023 */
@@ -562,5 +562,4 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 450px;
 }
