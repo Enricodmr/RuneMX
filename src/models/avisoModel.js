@@ -128,7 +128,7 @@ function listarPost(idAviso){
         FROM aviso a
             INNER JOIN usuario u
                 ON a.fk_usuario = u.id
-        WHERE a.id = ${idAviso}};
+        WHERE a.id = ${idAviso};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

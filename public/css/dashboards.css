@@ -561,5 +561,6 @@ button {
 .grafico2{
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  height: 450px;
 }
