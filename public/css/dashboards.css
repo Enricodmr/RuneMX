@@ -73,7 +73,8 @@ body {
   color: #CDBE94;
   background-color: #07324d;
   border: solid 1px #CDBE94;
-  width: 80px;
+  min-width: 80px;
+  max-width: fit-content;
 }
 
 .publicacao {
@@ -322,8 +323,8 @@ body {
 }
 
 canvas {
-  width: 40% !important;
-  height: 40% !important;
+  width: 37% !important;
+  height: 37% !important;
 }
 
 /* PAGINA DOS GRÁFICOS 2023 */

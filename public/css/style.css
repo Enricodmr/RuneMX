@@ -32,15 +32,17 @@ body {
     width: 300px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style: none;
+    margin-left: 150vh;
     color: #e3b062;
+    font-size: larger;
 }
 :root {
     --tamanho-header: 70px;
     --tamanho-footer: 65px;
     --tamanho-banner: calc(135vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-    --tamanho-banner2: calc(130vh - var(--tamanho-header) - var(--tamanho-footer) - 2px)
+    --tamanho-banner2: calc(130vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
     --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
 }
 
@@ -266,4 +268,11 @@ a:hover{
     font-family: 'Jockey One', sans-serif;
     font-size: 15px;
     align-self: center;
+}
+
+.titulo{
+    color: #CDBE94;
+   -webkit-text-stroke:1px;
+   -webkit-text-stroke-color: #000;
+   margin-right: 05vh;
 }

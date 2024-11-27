@@ -6,9 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>RuneMX | Responder Post</title>
 
-    <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
@@ -72,10 +71,12 @@
                 </div>
                 <div class="container">
                     <div class="div-results">
+                        <br>
+                        <br>
                         <div id="feed_container" class="feed-container">
                         </div>
-                        <div id="feed_responder" class="feed-container" style="display: none;
-                         width: 500px; height: 200px;">
+                        <div id="feed_responder" class="feed-container" style="display: none; justify-content: center;
+                         width: 500px; height: 220px;">
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <br>
@@ -83,16 +84,16 @@
                             <label>
                                 Descrição (máximo de 250 caracteres):
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" style="background-color: #022338; color: #CDBE94;"></textarea>
                             </label>
                             <br>
                             <br>
-                            <button class="botao" style="background-color: #CDBE94; color: #07324d;">Enviar</button>
+                            <button class="botao" style="background-color: #CDBE94; display: flex; color: #07324d; justify-content: center; align-items: center;">Enviar</button>
                         </form>  
                     </div>
                     
                     </div>
-                        <div id="feed_respostas" class="feed-container      ">
+                        <div id="feed_respostas" class="feed-container">
 
                         </div>
                     </div>

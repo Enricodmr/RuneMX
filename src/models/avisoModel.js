@@ -7,14 +7,14 @@ function listar() {
             a.id AS idAviso,
             a.titulo,
             a.descricao,
-            a.fk_usuario,
+            a.fkUsuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id;
+                ON a.fkUsuario = u.id;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -28,14 +28,14 @@ function listar_ultimos() {
             a.titulo,
             a.tema,
             a.descricao,
-            a.fk_usuario,
+            a.fkUsuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
+                ON a.fkUsuario = u.id
                     ORDER BY a.id DESC;;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -49,14 +49,14 @@ function pesquisarDescricao(texto) {
             a.id AS idAviso,
             a.titulo,
             a.descricao,
-            a.fk_usuario,
+            a.fkUsuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
+                ON a.fkUsuario = u.id
         WHERE a.descricao LIKE '${texto}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -71,14 +71,14 @@ function listarPorUsuario(idUsuario) {
             a.titulo,
             a.tema,
             a.descricao,
-            a.fk_usuario,
+            a.fkUsuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
+                ON a.fkUsuario = u.id
         WHERE u.id = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -88,7 +88,7 @@ function listarPorUsuario(idUsuario) {
 function publicar(titulo, tema, descricao, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, tema ,descricao, idUsuario);
     var instrucaoSql = `
-        INSERT INTO aviso (titulo, tema, descricao, fk_usuario) VALUES ('${titulo}','${tema}', '${descricao}', ${idUsuario});
+        INSERT INTO aviso (titulo, tema, descricao, fkUsuario) VALUES ('${titulo}','${tema}', '${descricao}', ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -120,14 +120,14 @@ function listarPost(idAviso){
             a.titulo,
             a.tema,
             a.descricao,
-            a.fk_usuario,
+            a.fkUsuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id
+                ON a.fkUsuario = u.id
         WHERE a.id = ${idAviso};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

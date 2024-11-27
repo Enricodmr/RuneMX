@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>RuneMX | Quizz</title>
 
     
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -56,10 +56,19 @@
                     <h3>Publicar</h3>
                 </a>
             </div>
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
+
+        </div>
+
+        </div>
 
         </div>
 
@@ -70,7 +79,9 @@
                 <div id="alerta">
                 </div>
                 <div class="container">
-                    <h1>Inicie o Quizz!</h1>
+                    <div id="divtitulo">
+                        <h1>Inicie o Quizz!</h1>
+                    </div>
                         <div id="div_perguntas">
                             <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botao_quizz">INICIAR QUIZ</button>
@@ -112,8 +123,7 @@
             
 
             <div id="botoes" class="flex-row padding-8">
-                <button onclick="submeter()" id="btnSubmeter" class="botao_resposta">Submeter resposta</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" class="botao_resposta" disabled>Tentar novamente</button>
+                <button onclick="tentarNovamente()" id="btnTentarNovamente" class="botao_resposta">Tentar novamente</button>
             </div>
                     </div>
                     
@@ -124,9 +134,10 @@
 </body>
 </html>
 <script>
+     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const listaDeQuestoes = [
 
-        {
+    {
             pergunta: "Quem é a irmã da Violet (Vi)?",
             alternativaA: "Powder",
             alternativaB: "Caitlyn",
@@ -145,9 +156,9 @@
         },
 
         {
-            pergunta: "Qual deste campeões não são de Bandopólis?",
+            pergunta: "Qual deste campeões não é de Bandopólis?",
             alternativaA: "Teemo",
-            alternativaB: "Vex",
+            alternativaB: "Annie",
             alternativaC: "Rumble",
             alternativaD: "Tristana",
             alternativaCorreta: "alternativaB"
@@ -179,75 +190,75 @@
             alternativaCorreta:"alternativaA"
         },
         {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
+            pergunta: "Qual desses campeões não pertence ao vazio?",
+            alternativaA:"Vel'Koz",
+            alternativaB:"Kai'Sa",
+            alternativaC:"Ryze",
+            alternativaD:"Malzahar",
+            alternativaCorreta:"alternativaC"
+        },
+        {
+            pergunta: "Qual campeão matou a Senna?",
+            alternativaA:"Thresh",
+            alternativaB:"Hecarim",
+            alternativaC:"Karthus",
+            alternativaD:"Viego",
             alternativaCorreta:"alternativaA"
         },
         {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
+            pergunta: "Qual desses campeões não é Vastaya?",
+            alternativaA:"Wukong",
+            alternativaB:"Nami",
+            alternativaC:"Xayah",
+            alternativaD:"Ivern",
+            alternativaCorreta:"alternativaD"
+        },
+        {
+            pergunta: "Quem criou a Orianna?",
+            alternativaA:"Heimerdinger",
+            alternativaB:"Singed",
+            alternativaC:"Ekko",
+            alternativaD:"Viktor",
+            alternativaCorreta:"alternativaB"
+        },
+        {
+            pergunta: "Qual desses campeões não são rivais?",
+            alternativaA:"Gangplank e Miss Fortune",
+            alternativaB:"Kayle e Morgana",
+            alternativaC:"Tryndamere e Ashe",
+            alternativaD:"Irelia e Swain",
+            alternativaCorreta:"alternativaC"
+        },
+        {
+            pergunta: "Qual o nome da irmã do Aphelios?",
+            alternativaA:"Alune",
+            alternativaB:"Alice",
+            alternativaC:"Alana",
+            alternativaD:"Aline",
             alternativaCorreta:"alternativaA"
         },
         {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
+            pergunta: "Em que ano League of Legends foi lançado?",
+            alternativaA:"2007",
+            alternativaB:"2008",
+            alternativaC:"2009",
+            alternativaD:"2010",
+            alternativaCorreta:"alternativaC"
         },
         {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
+            pergunta: "Em qual região Sylas foi preso?",
+            alternativaA:"Noxus",
+            alternativaB:"Ionia",
+            alternativaC:"Demacia",
+            alternativaD:"Shurima",
+            alternativaCorreta:"alternativaC"
         },
         {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
-        },
-        {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
-        },
-        {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
-        },
-        {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
-            alternativaCorreta:"alternativaA"
-        },
-        {
-            pergunta: "Qual membro da familia Du couteau foi adotado?",
-            alternativaA:"Talon",
-            alternativaB:"Katarina",
-            alternativaC:"Cassiopeia",
-            alternativaD:"Shyvanna",
+            pergunta: "Qual dessas campeãs não fazem parte do grupo K/DA?",
+            alternativaA:"Sona",
+            alternativaB:"Akali",
+            alternativaC:"Seraphine",
+            alternativaD:"Ahri",
             alternativaCorreta:"alternativaA"
         }
 
@@ -271,6 +282,7 @@
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.getElementById('divtitulo').innerHTML = `<br><br><br>`
 
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
@@ -278,7 +290,6 @@
 
         btnSubmeter.disabled = false
         // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {

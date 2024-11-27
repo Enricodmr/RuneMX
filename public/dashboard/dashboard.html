@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>RuneMX | Dashboard</title>
 
     
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -56,10 +56,19 @@
                     <h3>Publicar</h3>
                 </a>
             </div>
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
+
+        </div>
+
+        </div>
 
         </div>
 
@@ -122,7 +131,7 @@
       aproveitamento.innerHTML = '0%'
     }else{
       let pontoInt = Number(pontoSessao) 
-      let aproveitamento = (pontoInt/6)*100
+      let aproveitamento = (pontoInt/15)*100
 
       SpanAproveitamento.innerHTML = `${aproveitamento.toFixed(0)}%`
     }

@@ -65,4 +65,18 @@ select * from usuario;
 select * from quiz;
 
 select truncate(avg(qtdPontos),0) AS MediaPontuacao from quiz;
-alter table quiz rename column pontos to qtdPontos;
+
+
+SELECT a.id AS idAviso,
+            a.titulo,
+            a.tema,
+            a.descricao,
+            a.fk_usuario,
+            u.id AS idUsuario,
+            u.nome,
+            u.email,
+            u.senha
+        FROM aviso a
+            INNER JOIN usuario u
+                ON a.fk_usuario = u.id
+        WHERE a.id = 8;
